@@ -1,0 +1,189 @@
+</<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <link rel="stylesheet" type="text/css" href="css/Lease.css">
+	    <script type="text/javascript" src="script/jquery-2.1.4.js"></script>
+	    <script src="script/leaseform.js"></script>
+	    <script src="script/firebase.js"></script>
+	</head>
+	<body>
+	<fieldset class="lease-form">
+			<legend>Lease Information Form</legend>
+			<fieldset>
+				<legend>Tenant Information</legend>
+					<table>
+					<tr>
+						<td style="text-align:right">Primary </td>
+						<td><input type="text" id="primaryTenant" class="text-long"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right">Secondary</td>
+						<td><input type="text" id="secondaryTenant" class="text-long"/></td>
+					</tr>
+					<tr>
+						<td style="text-align:right">Email</td>
+						<td><input type="text" id="emailAddress" class="text-long"></td>
+					</tr>
+					<tr>
+						<td style="text-align:right">
+							Number of Adults
+						</td>
+						<td>
+							<select id="numbersAdult">
+					            <option value="0">Select</option>
+					            <option value="1">1</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5</option>
+					        </select>		
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:right">
+							Number of Children
+						</td>
+						<td>
+							<select id="numbersChildren">
+					            <option value="0">Select</option>
+					            <option value="1">1</option>
+					            <option value="2">2</option>
+					            <option value="3">3</option>
+					            <option value="4">4</option>
+					            <option value="5">5</option>
+					        </select>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+
+			<fieldset>
+				<legend>Property</legend>
+				<table>
+					<tr>
+						<td style="text-align:right">Property Address</td>
+						<td>
+							<select id="properties">
+			                	<option value="0">Select property</option>
+			            	</select>
+			            </td>
+					</tr>
+					<tr>
+					<td style="text-align:right">
+						Trash Pick-up Day
+					</td>
+						<td>
+							<select id="trashPickup">
+						        <option value="0">Select</option>
+						        <option value="1">Sunday</option>
+						        <option value="2">Monday</option>
+						        <option value="3">Tuesday</option>
+						        <option value="4">Wednesday</option>
+						        <option value="5">Thursday</option>
+						        <option value="6">Friday</option>
+						        <option value="7">Saturday</option>
+						    </select>
+						</td>
+				</table>
+			</fieldset>
+
+			<fieldset>
+				<legend>Lease and Deposit Information</legend>
+				<table>
+					<tr>
+						<td style="text-align:right">Rent $</td>
+						<td><input type="text" id="rentAmount" class="text1"></td>
+					</tr>
+					<tr>
+						<td style="text-align:right">
+							Lease Start Date
+						</td>
+						<td>
+							<select id="leaseStartMonths">
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
+							</select> 
+							<select id="leaseStartYears">
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+							</select>	
+						</td>
+					</tr>	
+					<tr>
+						<td style="text-align:right">
+							Lease End Date
+						</td>
+						<td>
+							<select id="leaseEndMonths">
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
+							</select> 
+							<select id="leaseEndYears">
+								<option value="2015">2015</option>
+								<option value="2016">2016</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+							<td style="text-align:right">Deposit $</td>
+							<td><input type="text" id="depositAmount" class="text1"></td>
+						</tr>
+						<tr>
+							<td style="text-align:right">Pet Deposit $</td>
+							<td><input type="text" id="petDepositAmount" class="text1"></td>
+						</tr>
+						<tr>
+							<td style="text-align:right">Deposit Date</td>
+							<td>
+							<select id="depositMonths">
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
+				        	</select> 
+				            <select id="depositYears">
+				                <option value="2015">2015</option>
+				                <option value="2016">2016</option>
+				            </select>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+			<table width="100%">
+				<tr>
+					<td style="width: 50%; text-align: center"><button id="submit" onclick="SaveData();" class="btn-lease">Save</button></td>
+					<td style="width: 50%; text-align: center"><button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn-lease">Sign Lease</button></td>
+				</tr>
+			</table>
+		</fieldset>
+	</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!--<script src="todataurl.js"></script>-->
+        <script type="text/javascript" src="script/jquery-2.1.4.js"></script>
+        <script src="script/signature.js"></script>
+        <script src="script/firebase.js"></script>
+        <script src="script/Lease.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/Lease.css">
+    </head>
+    <body>
+        <div id="lease-document">
+            <div id="lease-heading" class="h1">
+                Lease
+            </div>
+            <div id="lease-subheading" class="h2">
+                Basic Rental Agreement or residential lease
+            </div>
+            <div id="section1">
+                <div class="h3">
+                    SECTION 1: BASIC LEASE AGREEMENT:
+                </div>
+                <p id="section1Text">
+                    Wade and Rachel Sigler, Hereinafter referred to as Owner, hereby agree to lease to: [primaryTenant] [secondaryTenant], hereinafter referred to as Tenants, the premises located at [property]. 
+                    The term of the lease shall commence on [leaseStartDate] and shall end on [leaseEndDate]. 
+                    Rent shall be $[rentAmount] a month. Tenant’s [primaryTenant] [secondaryTenant] 
+                    paid a nonrefundable deposit of $[deposit] on [depositDate] for the purpose of guaranteeing compliance with the terms of the lease.
+                </p>
+                <input id="confirmationSection1" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section2">
+                <div class="h3">
+                    SECTION 2: rent
+                </div>
+                <p>
+                    <ol type="A">
+                        <li>Rent is due on the first day of the calendar month which occupancy it covers. It shall be made payable to Wade and/or Rachel Sigler.</li>
+                        <li>A late payment charge of $30.00 will also be due if the rent is not paid to Owners on the 5th of the month, an additional $5.00 per each additional day late.</li>
+                        <li>If Tenant occupies the premises beyond the term of this lease without agreement with the Owners then Tenant will be obligated to pay a full month rent payment.</li>
+                        <li>Any returned check will be subject to an additional fee of $35.00.</li>
+                    </ol>
+                </p>
+                <input id="confirmationSection2" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section3">
+                <div class="h3">
+                    SECTION 3: restrictions on use:
+                </div>
+                <p>
+                    <ol type="A" id="section3Text">
+                        <li>No person other than [numbersAdult] adults and [numberChildren] children, and temporary guest may occupy the premises without written consent by the owners. If another person moves in then a new lease must be agreed to with additional rent of $25.00 per person. No more than 5 people may occupy the property at one time.</li>
+                        <li>The Tenant may not:
+                            <ol>
+                                <li class="font-normal">
+                                    Negligently or intentionally damage the premises or permit them to be damaged.
+                                </li>
+                                <li class="font-normal">Park or drive any motor vehicle on the lawn.</li>
+                                <li  class="font-normal">Do or permit any other act, which is detrimental to the welfare of the premises or the neighborhood.</li>
+                                <li class="font-normal">Inoperable vehicles not to be left on the street or property for more than 7 days.</li>
+                            </ol>
+                    </ol>
+                </p>
+                <input id="confirmationSection3" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section4">
+                <div class="h3">
+                    SECTION 4: Condition of premises:
+                </div>
+                <p>
+                    Tenant acknowledges that he/she has examined the premises and that said premises, all furnishings, fixtures, plumbing, heating, electrical facilities, all items provided by the Owner are clean, and in satisfactory condition. Tenant agrees to keep the premises and all items in good order and good condition and to immediately pay for costs to repair and/or replace any portion of the above damage by Tenant, his/her guests and/or invitees, except as provided by law.
+
+                </p>
+                <input id="confirmationSection4" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section5">
+                <div class="h3">
+                    SECTION 5: property maintenance:
+                </div>
+                <p>
+                    Tenant shall deposit all garbage and waste in a clean and sanitary manner into the proper receptacles and shall cooperate in keeping the garbage area neat and clean. Tenant shall be responsible for disposing of items of such size and nature as are not normally acceptable be the garbage hauler. Tenant shall not paint, wallpaper, alter or redecorate, change or install locks, screws, fastening devices, large nails, or adhesive materials, place signs, display or other exhibits, on or in any portion of the premises without the written consent of the Owner.
+                    
+                    <br/>
+                    Tenant shall:
+                    <ol type="A">
+                        <li>
+                            Be responsible for keeping the kitchen and bathroom drains free of things that tend to cause clogging of the drain.
+                        </li>
+                        <li>
+                            Tenant shall pay for the cleaning out of plumbing fixtures that may need to be cleared of stoppage and for the expense or damage caused by stopping of waste pipes or overflow from bathtubs, wash basins, or sinks.
+                        </li>
+                        <li>
+                            Tenant shall pay for the complete replacement of windows should the Tenant or guest of, damage and/or break one. 
+                        </li>
+                        <li> 
+                            Tenant is responsible for the changing of filters for the AC/Heater unit. Damages or repairs made due to Tenant lack of regular maintenance will result in Tenant paying for repairs.
+                        </li>
+                    </ol>
+                </p>
+                <input id="confirmationSection5" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section6">
+                <div class="h3">
+                    SECTION 6: Utilities:
+                </div>
+                <p id="section6Text">
+                    Tenant agrees to pay all utilities and/or services based upon occupancy of the premises. Trash pickup service is provided by the city on [trashPickup] of each week and the trashcan should be kept at the side or rear of the premises at all other times.
+
+                </p>
+                <input id="confirmationSection6" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section7">
+                <div class="h3">
+                    SECTION 7: Right of entry and inspection:
+                </div>
+                <p>
+                    Owner may enter, inspect, and/or repair the premises at any time, and may enter for the purpose of normal inspection and repairs, suspicion of illegal activity or access to Owner’s property. Owner is permitted to make all alterations, repairs, and maintenance and shall give 24 hours’ notice before entry.
+                </p>
+                <input id="confirmationSection7" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section8">
+                <div class="h3">
+                    SECTION 8: insurance:
+                </div>
+                <p>
+                    Tenant acknowledges that Owners insurance DOES NOT cover personal property damage caused by fire, theft, rain, war, acts of god, acts of others, and/or any other causes, nor shall Owner be held liable for such losses. Tenant is advised to obtain his own insurance policy to cover any personal losses.
+                </p>
+                <input id="confirmationSection8" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section9">
+                <div class="h3">
+                    SECTION 9: Pets:
+                </div>
+                <p id="section9Text">
+                    No pets unless a $[petDeposit] PER PET DEPOSIT is made along with the monthly rent and deposit. If Owner finds a pet on the premises either visiting or permanent, Tenant may be evicted or penalized the above listed deposit IMMEDIATELY.
+
+                </p>
+                <input id="confirmationSection9" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section10">
+                <div class="h3">
+                    SECTION 10: Inventory:
+                </div>
+                <p>
+                    The premises contains the following items that the Tenant may use but must leave when the lease has expired.
+                    <ul>
+                        <li>Refrigerator</li>
+                        <li>Stove</li>
+                    </ul>
+                </p>
+                <input id="confirmationSection10" type="checkbox" value="Agree"><div class="checkbox-text">Tenant Confirmation</div>
+            </div>
+            <div id="section11">
+                <div class="h3">
+                    entire agreement:
+                </div>
+                <p>
+                    This Agreement constitutes the entire agreement between Owner and Tenant. No oral agreements have been entered into and all modifications or notices shall be in writing to be valid. The undersigned Tenant have read and understood this Agreement and hereby acknowledge receipt of a copy of the Rental Agreement.
+                </p>
+                <table>
+                    <tr>
+                        <td width="50%">
+                            <p id="printPrimaryTenant">
+                                Tenant Print: [primaryTenant]
+                            </p>
+                        </td>
+                        <td width="50%">
+                            <p id="printSecondaryTenant">
+                                Tenant Print: [secondaryTenant]
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            <p>
+                                Tenant Signature:
+                                <div id="canvas">
+                                <canvas class="roundCorners signature" id="tenant1"/>
+                                </div>
+                                <script>signatureCapture("tenant1");</script>
+                            </p>
+                        </td>
+                        <td width="50%">
+                            <p>
+                                Tenant Signature:
+                                <div id="canvas">
+                                <canvas class="roundCorners signature" id="tenant2"/>
+                                </div>
+                                <script>signatureCapture("tenant2");</script>
+                            </p>
+                        </td>
+                    </tr>
+                </table>  
+            </div>
+        </div>
+    </body>
+</html>
