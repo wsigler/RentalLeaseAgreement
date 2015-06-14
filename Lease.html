@@ -157,40 +157,27 @@
                 <p>
                     This Agreement constitutes the entire agreement between Owner and Tenant. No oral agreements have been entered into and all modifications or notices shall be in writing to be valid. The undersigned Tenant have read and understood this Agreement and hereby acknowledge receipt of a copy of the Rental Agreement.
                 </p>
-                <table>
-                    <tr>
-                        <td width="50%">
-                            <p id="printPrimaryTenant">
-                                Tenant Print: [primaryTenant]
-                            </p>
-                        </td>
-                        <td width="50%">
-                            <p id="printSecondaryTenant">
-                                Tenant Print: [secondaryTenant]
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="50%">
-                            <p>
-                                Tenant Signature:
-                                <div id="canvas">
-                                <canvas class="roundCorners signature" id="tenant1"/>
-                                </div>
-                                <script>signatureCapture("tenant1");</script>
-                            </p>
-                        </td>
-                        <td width="50%">
-                            <p>
-                                Tenant Signature:
-                                <div id="canvas">
-                                <canvas class="roundCorners signature" id="tenant2"/>
-                                </div>
-                                <script>signatureCapture("tenant2");</script>
-                            </p>
-                        </td>
-                    </tr>
-                </table>  
+                <p id="printPrimaryTenant">
+                    Tenant Print: [primaryTenant]
+                </p>
+                <p>
+                    Tenant Signature:
+                    <div id="canvas">
+                    <canvas class="roundCorners signature" id="tenant1"/>
+                    </div>
+                    <script>signatureCapture("tenant1");</script>
+                </p>
+                
+                <p id="printSecondaryTenant">
+                    Tenant Print: [secondaryTenant]
+                </p>
+                <p>
+                    Tenant Signature:
+                    <div id="canvas">
+                        <canvas class="roundCorners signature" id="tenant2"/>
+                    </div>
+                    <script>signatureCapture("tenant2");</script>
+                </p>  
             </div>
         </div>
     </body>
