@@ -22,7 +22,7 @@ fieldset{
 	border-right: none;
 	border-bottom: none;
 	border-top: 2px solid #c8c8c8;
-	width: 30em;
+	width: 33em;
 	margin-top: 2em;
 }
 .lease-form{
@@ -36,6 +36,14 @@ fieldset{
 legend{
 	font-weight: bold;
 	color: red;
+}
+
+.form-td-label{
+	text-align: right;
+	width: 25em;
+}
+.form-td-input{
+	width: 25em;
 }
 
 .btn-lease {
