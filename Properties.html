@@ -5,13 +5,13 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" type="text/css" href="css/Lease.css">
 	    <script type="text/javascript" src="script/jquery-2.1.4.js"></script>
-	    <script src="script/leaseform.js"></script>
+	    <script src="script/properties.js"></script>
 	    <script src="script/firebase.js"></script>
 	</head>
 <body>
-	<fieldset class="lease-form">
+	<fieldset class="lease-form property-fieldset">
 		<legend>Property Information Form</legend>
-		<fieldset>
+		<fieldset class="property-fieldset">
 			<legend>Add New Property</legend>
 			<table>
 				<tr>
@@ -32,17 +32,63 @@
 				</tr>
 				<tr>
 					<td style="text-align:right">Bedrooms </td>
-					<td></td>
+					<td>
+						<select id="numberOfBedrooms">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>	
+						</select>
+					</td>
 				</tr>
 				<tr>
 					<td style="text-align:right">Bathrooms </td>
-					<td</td>
+					<td>
+						<select id="numberOfBathrooms">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>	
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right">Square Footage </td>
+					<td><input type="text" id="squareFootage" class="text1" text="TX"/></td>
+				</tr>
+				<tr>
+					<td style="text-align:right">W/D Connection </td>
+					<td>
+						<select id="wdConnection">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>	
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:right">Central A/C </td>
+					<td>
+						<select id="centralAC">
+							<option value="Yes">Yes</option>
+							<option value="No">No</option>	
+						</select>
+					</td>
 				</tr>
 			</table>
 		</fieldset>
 
-		<fieldset>
+		<fieldset class="property-fieldset">
 			<legend>View Properties</legend>
+			<table id="propertiesList">
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Bedrooms</th>
+				<th>Bathrooms</th>
+				<th>Sq. Ft.</th>
+				<th>W/D Connection</th>
+				<th>Central AC</th>
+			</table>
 		</fieldset>
 	</fieldset>
 </body>

@@ -6,35 +6,16 @@ $(document).ready(function() {
         var counter = 0;
         properties.forEach(function(property) {
           
-            // key will be "fred" the first time and "wilma" the second time
+            // key will be "Property1" the first time and "Property2" the second time...etc 
             var key = property.key();
-            var address = "[address] [city], [state] [zip]";
             
             // childData will be the actual contents of the child
             counter++;
             var propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/Properties");
             propertyRef.child("Property" + counter).on("value", function(attributes){
-                attributes.forEach(function(cs){
-                    switch(cs.key()){
-                        case "Address":
-                            address = address.replace('[address]', cs.val());
-                            break;
-                        case "City":
-                            address = address.replace('[city]', cs.val());
-                            break;
-                        case "State":
-                            address = address.replace('[state]', cs.val());
-                            break;
-                        case "Zip":
-                            address = address.replace('[zip]', cs.val());
-                            break;
-                        default:
-                            break;
-                    }
-                });
-
+                var x = attributes.val();
+                $("#properties").append('<option value=' + counter + '>' + x.Address + " " + x.City + ", " + x.State + " " + x.Zip + '</option>');
             });
-            $("#properties").append('<option value=' + counter + '>' + address + '</option>');
         });
     });
 
@@ -48,7 +29,8 @@ function SaveData(){
         Property : $( "#properties option:selected" ).text(),
         PrimaryTenant : $("#primaryTenant").val(),
         SecondaryTenant : $("#secondaryTenant").val(),
-        EmailAddress: $("#emailAddress").val(),
+        PrimaryEmail: $("#primaryEmail").val(),
+        SecondaryEmail: $("#secondaryEmail").val(),
         RentAmount : $('#rentAmount').val(),
         DepositAmount : $("#depositAmount").val(),
         PetDepositAmount : $("#petDepositAmount").val(),

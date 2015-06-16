@@ -30,6 +30,9 @@ fieldset{
 	border-left: 2px solid #c8c8c8;
 	border-bottom: 2px solid #c8c8c8;
 }
+.property-fieldset{
+	width: 50em;
+}
 legend{
 	font-weight: bold;
 	color: red;
