@@ -18,9 +18,8 @@ $(document).ready(function() {
             });
         });
     });
-
-    
 });
+
 function SaveData(){
     
     var ref = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/");
@@ -28,7 +27,9 @@ function SaveData(){
     usersRef.set({
         Property : $( "#properties option:selected" ).text(),
         PrimaryTenant : $("#primaryTenant").val(),
+        PrimaryPhoneNumber: $('#primaryPhoneNumber').val(),
         SecondaryTenant : $("#secondaryTenant").val(),
+        SecondaryPhoneNumber: $('#secondaryPhoneNumber').val(),
         PrimaryEmail: $("#primaryEmail").val(),
         SecondaryEmail: $("#secondaryEmail").val(),
         RentAmount : $('#rentAmount').val(),

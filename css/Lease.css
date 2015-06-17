@@ -33,9 +33,10 @@ fieldset{
 .property-fieldset{
 	width: 50em;
 }
-legend{
+header{
 	font-weight: bold;
 	color: red;
+	margin: 10px;
 }
 
 .form-td-label{
