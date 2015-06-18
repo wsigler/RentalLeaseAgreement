@@ -58,7 +58,7 @@ function SaveData(){
         PetDepositAmount : $("#petDepositAmount").val(),
         LeaseStartDate : $( "#leaseStartDate").val(),
         LeaseEndDate: $( "#leaseEndDate").val(),
-        DepositDate : $( "#depositDate").val(),,
+        DepositDate : $( "#depositDate").val(),
         NumbersAdult : $( "#numbersAdult option:selected" ).text(), 
         NumberChildren : $( "#numbersChildren option:selected" ).text(),
         TrashPickup : $( "#trashPickup option:selected" ).text()
