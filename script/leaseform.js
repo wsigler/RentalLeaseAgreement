@@ -17,6 +17,27 @@ $(document).ready(function() {
                 $("#properties").append('<option value=' + counter + '>' + x.Address + " " + x.City + ", " + x.State + " " + x.Zip + '</option>');
             });
         });
+        $(function() {
+            $( "#leaseStartDate" ).datepicker();
+          });
+        $(function() {
+            $( "#leaseEndDate" ).datepicker();
+          });
+        $(function() {
+            $( "#depositDate" ).datepicker();
+          });
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        $.each(days, function( index, value ) {
+          $("#trashPickup").append('<option value=' + index + '>' + value + '</option>');
+        });
+
+        $(function(){
+            for(x = 1; x < 6; x++)
+            {
+                $("#numbersAdult").append('<option value=' + x + '>' + x + '</option>');
+                $("#numbersChildren").append('<option value=' + x + '>' + x + '</option>');
+            }
+        });
     });
 });
 
@@ -35,9 +56,9 @@ function SaveData(){
         RentAmount : $('#rentAmount').val(),
         DepositAmount : $("#depositAmount").val(),
         PetDepositAmount : $("#petDepositAmount").val(),
-        LeaseStartDate : $( "#leaseStartMonths option:selected" ).text() + ", " +  $( "#leaseStartYears option:selected" ).text(),
-        LeaseEndDate: $( "#leaseEndMonths option:selected" ).text() + ", " +  $( "#leaseEndYears option:selected" ).text(),
-        DepositDate : $( "#depositMonths option:selected" ).text() + ", " + $( "#depositYears option:selected" ).text(),
+        LeaseStartDate : $( "#leaseStartDate").val(),
+        LeaseEndDate: $( "#leaseEndDate").val(),
+        DepositDate : $( "#depositDate").val(),,
         NumbersAdult : $( "#numbersAdult option:selected" ).text(), 
         NumberChildren : $( "#numbersChildren option:selected" ).text(),
         TrashPickup : $( "#trashPickup option:selected" ).text()

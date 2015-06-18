@@ -9,87 +9,82 @@
 	    <script src="script/firebase.js"></script>
 	</head>
 <body>
-	<fieldset class="lease-form property-fieldset">
-		<legend>Property Information Form</legend>
-		<fieldset class="property-fieldset">
-			<legend>Add New Property</legend>
-			<table>
-				<tr>
-					<td style="text-align:right">Address </td>
-					<td><input type="text" id="address" class="text-long"/></td>
-				</tr>
-				<tr>
-					<td style="text-align:right">City </td>
-					<td><input type="text" id="city" class="text-long"/></td>
-				</tr>
-				<tr>
-					<td style="text-align:right">State </td>
-					<td><input type="text" id="state" class="text-long"/></td>
-				</tr>
-				<tr>
-					<td style="text-align:right">Zip </td>
-					<td><input type="text" id="zip" class="text1" text="TX"/></td>
-				</tr>
-				<tr>
-					<td style="text-align:right">Bedrooms </td>
-					<td>
-						<select id="numberOfBedrooms">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>	
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td style="text-align:right">Bathrooms </td>
-					<td>
-						<select id="numberOfBathrooms">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>	
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td style="text-align:right">Square Footage </td>
-					<td><input type="text" id="squareFootage" class="text1" text="TX"/></td>
-				</tr>
-				<tr>
-					<td style="text-align:right">W/D Connection </td>
-					<td>
-						<select id="wdConnection">
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>	
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td style="text-align:right">Central A/C </td>
-					<td>
-						<select id="centralAC">
-							<option value="Yes">Yes</option>
-							<option value="No">No</option>	
-						</select>
-					</td>
-				</tr>
-			</table>
-		</fieldset>
-
-		<fieldset class="property-fieldset">
-			<legend>View Properties</legend>
-			<table id="propertiesList">
-				<th>Address</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Zip</th>
-				<th>Bedrooms</th>
-				<th>Bathrooms</th>
-				<th>Sq. Ft.</th>
-				<th>W/D Connection</th>
-				<th>Central AC</th>
-			</table>
-		</fieldset>
-	</fieldset>
-</body>
+	<header>Property Information Form</header>
+	<header>Add New Property</header>
+		<table>
+			<tr>
+				<td class="form-td-label">Address </td>
+				<td><input type="text" id="address" class="text-long"/></td>
+			</tr>
+			<tr>
+				<td class="form-td-label">City </td>
+				<td><input type="text" id="city" class="text-long"/></td>
+			</tr>
+			<tr>
+				<td class="form-td-label">State </td>
+				<td><input type="text" id="state" class="text-long"/></td>
+			</tr>
+			<tr>
+				<td class="form-td-label">Zip </td>
+				<td><input type="text" id="zip" class="text1" text="TX"/></td>
+			</tr>
+			<tr>
+				<td class="form-td-label">Bedrooms </td>
+				<td>
+					<select id="numberOfBedrooms">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>	
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="form-td-label">Bathrooms </td>
+				<td>
+					<select id="numberOfBathrooms">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>	
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="form-td-label">Square Footage </td>
+				<td><input type="text" id="squareFootage" class="text1" text="TX"/></td>
+			</tr>
+			<tr>
+				<td class="form-td-label">W/D Connection </td>
+				<td>
+					<select id="wdConnection">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>	
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="form-td-label">Central A/C </td>
+				<td>
+					<select id="centralAC">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>	
+					</select>
+				</td>
+			</tr>
+		</table>
+		<header>View Properties</header>
+		<table id="propertiesList" width="100%">
+			<tr>
+				<td>Address</td>
+				<td>City</td>
+				<td>State</td>
+				<td>Zip</td>
+				<td>Bedrooms</td>
+				<td>Bathrooms</td>
+				<td>Sq. Ft.</td>
+				<td>W/D Connection</td>
+				<td>Central AC</td>
+			</tr>
+		</table>	
+	</body>
 </html>
