@@ -3,88 +3,59 @@
 	<head>
 		<title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	    <link rel="stylesheet" type="text/css" href="css/Lease.css">
+		<meta name="viewport" content="width=device-width">
+		<meta name="viewport" content="initial-scale=1">
+	    <link rel="stylesheet" type="text/css" href="css/base.css">
 	    <script type="text/javascript" src="script/jquery-2.1.4.js"></script>
 	    <script src="script/properties.js"></script>
 	    <script src="script/firebase.js"></script>
 	</head>
-<body>
-	<header>Property Information Form</header>
-	<header>Add New Property</header>
-		<table>
-			<tr>
-				<td class="form-td-label">Address </td>
-				<td><input type="text" id="address" class="text-long"/></td>
-			</tr>
-			<tr>
-				<td class="form-td-label">City </td>
-				<td><input type="text" id="city" class="text-long"/></td>
-			</tr>
-			<tr>
-				<td class="form-td-label">State </td>
-				<td><input type="text" id="state" class="text-long"/></td>
-			</tr>
-			<tr>
-				<td class="form-td-label">Zip </td>
-				<td><input type="text" id="zip" class="text1" text="TX"/></td>
-			</tr>
-			<tr>
-				<td class="form-td-label">Bedrooms </td>
-				<td>
-					<select id="numberOfBedrooms">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>	
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="form-td-label">Bathrooms </td>
-				<td>
-					<select id="numberOfBathrooms">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>	
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="form-td-label">Square Footage </td>
-				<td><input type="text" id="squareFootage" class="text1" text="TX"/></td>
-			</tr>
-			<tr>
-				<td class="form-td-label">W/D Connection </td>
-				<td>
-					<select id="wdConnection">
-						<option value="Yes">Yes</option>
-						<option value="No">No</option>	
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td class="form-td-label">Central A/C </td>
-				<td>
-					<select id="centralAC">
-						<option value="Yes">Yes</option>
-						<option value="No">No</option>	
-					</select>
-				</td>
-			</tr>
-		</table>
-		<header>View Properties</header>
-		<table id="propertiesList" width="100%">
-			<tr>
-				<td>Address</td>
-				<td>City</td>
-				<td>State</td>
-				<td>Zip</td>
-				<td>Bedrooms</td>
-				<td>Bathrooms</td>
-				<td>Sq. Ft.</td>
-				<td>W/D Connection</td>
-				<td>Central AC</td>
-			</tr>
-		</table>	
+	<body>
+		<div class="container">
+			<header>Add New Property</header>
+			<section>Address</section>
+			<aside><input type="text" id="address" class="text-long"/></aside>
+			<section>City</section>
+			<aside><input type="text" id="city" class="text-long"/></aside>
+			<section>State</section>
+			<aside><input type="text" id="state" class="text-long" text="TX"/></aside>
+			<section>Zip</section>
+			<aside><input type="text" id="zip" class="text1"/></aside>
+			<section>Bedrooms</section>
+			<aside>
+				<select id="numberOfBedrooms">
+					<option value="-1">-- Select --</option>	
+				</select>
+			</aside>
+			<section>Bathrooms</section>
+			<aside>
+				<select id="numberOfBathrooms">
+					<option value="-1">-- Select --</option>	
+				</select>
+			</aside>
+			<section>Square Footage</section>
+			<aside><input type="text" id="squareFootage" class="text1"/></aside>
+			<section>W/D Connection</section>
+			<aside>
+				<select id="wdConnection">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>	
+				</select>
+			</aside>
+			<section>Central A/C</section>
+			<aside>
+				<select id="centralAC">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>	
+				</select>
+			</aside>
+			<div class="clear"></div>
+			<header>View Properties</header>
+			<div id="propertyList">
+			</div>
+			<div class="clear"></div>
+			<section><button id="submit" onclick="SaveData();" class="btn-lease">Save</button></section>
+			<aside></aside>
+		</div>	
 	</body>
 </html>

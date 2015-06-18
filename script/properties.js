@@ -11,25 +11,27 @@ $(document).ready(function() {
           
             // key will be "fred" the first time and "wilma" the second time
             var key = property.key();
-           	var row$ = $("<tr/>");
-            // childData will be the actual contents of the child
+           	// childData will be the actual contents of the child
             counter++;
             var propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/Properties");
             propertyRef.child("Property" + counter).on("value", function(attributes){
         		var proList = attributes.val();
-        		row$.append($('<td/>').html(proList.Address));
-        		row$.append($('<td/>').html(proList.City));
-        		row$.append($('<td/>').html(proList.State));
-        		row$.append($('<td/>').html(proList.Zip));
-        		row$.append($('<td/>').html(proList.Bedrooms));
-        		row$.append($('<td/>').html(proList.Bathrooms));
-        		row$.append($('<td/>').html(proList.SquareFootage));
-        		row$.append($('<td style="text-align:center"/>').html(proList.WDConnection));
-        		row$.append($('<td/>').html(proList.CentralAC));
+
+                $("#propertyList").append('<a href="Properties.html?id=' + counter + '">' + proList.Address + ' ' + proList.City +'</a><br/>');
         	});
-        	$("#propertiesList").append(row$);
+        	
         });
+        //$("#propertyList").css("", "");
     });
+    
+    $(function(){
+        for(x = 1; x < 5; x++)
+        {
+            $("#numberOfBedrooms").append('<option value=' + x + '>' + x + '</option>');
+            $("#numberOfBathrooms").append('<option value=' + x + '>' + x + '</option>');
+        }
+    });
+    $("#propertyList").css("overflow-y", "scroll");
 });
 
 function SaveData(){

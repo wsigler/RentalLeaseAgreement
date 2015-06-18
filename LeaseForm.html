@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width">
-		<meta name="viewport" content="initial-scale=2">
+		<meta name="viewport" content="initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <link rel="stylesheet" type="text/css" href="css/base.css">
 	    <link rel="stylesheet" type="text/css" href="css/jquery-ui/jquery-ui.css">
@@ -71,13 +71,8 @@
 			<section>Pet Deposit</section>
 			<aside><input type="text" id="petDepositAmount" class="text1"></aside>
 			<div class="clear"></div>
+			<section><button id="submit" onclick="SaveData();" class="btn-lease">Save</button></section>
+			<aside><button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn-lease">Sign Lease</button></aside>
 		</div>
-		
-		<table class="btn-container">
-			<tr>
-				<td style="width: 50%; text-align: center"><button id="submit" onclick="SaveData();" class="btn-lease">Save</button></td>
-				<td style="width: 50%; text-align: center"><button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn-lease">Sign Lease</button></td>
-			</tr>
-		</table>
 	</body>
 </html>

@@ -2,6 +2,9 @@
 body {
   background: #ddd;
 }
+input{
+	width: 90%;
+}
 header{
 	font-weight: bold;
 	color: red;
@@ -12,12 +15,6 @@ aside {
   margin: 1.858736059%;
   height: 20px;
 }
-.form-container-text{
-  	width: 30%;
- }
-.form-container-input{
-	width: 65%;
- }
 
 @media all and (min-width: 420px) {
   .container {
@@ -35,9 +32,6 @@ aside {
 
 .clear{
 	clear: both;
-}
-.form-container{
-	border: solid 1px red;
 }
 /*============Button=================*/
 .btn-lease {
