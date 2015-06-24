@@ -10,6 +10,9 @@ header{
 	color: red;
 	margin: 1.858736059%;
 }
+header .lease{
+	color:#000;
+}
 section,
 aside {
   margin: 1.858736059%;
