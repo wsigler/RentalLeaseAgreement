@@ -119,6 +119,13 @@ input[type=checkbox]{
 	font-weight: bold;
 }
 
+/*============== Signature ================= */
+.signature{
+	margin: 0; 
+	padding: 0; 
+	border: 1px solid #c4caac;
+}
+
 
 
 
