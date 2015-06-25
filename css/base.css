@@ -3,34 +3,53 @@ body {
   background: #ddd;
 }
 input{
-	width: 90%;
+	width: 50%;
 }
 header{
 	font-weight: bold;
 	color: red;
 	margin: 1.858736059%;
+	max-width: 350px;
 }
-header .lease{
-	color:#000;
+.container{
+	max-width: 800px;
 }
-section,
+
+section {
+  margin: 1.858736059%;
+  height: 20px;
+  float: left;
+  width: 33.197026%;
+}
+
 aside {
   margin: 1.858736059%;
   height: 20px;
+  float: right;
+  width: 59.3680297%;
 }
 
-@media all and (min-width: 420px) {
+input[type=checkbox]{
+	font-size: 1.5em;
+	font-weight: bold;
+	width: 5%;
+}
+
+@media all and (min-width: 420px) and (max-width: 780px) {
   .container {
     max-width: 340px;
   }
-  section {
-    float: left;
-    width: 33.197026%;
+  input{
+		width: 90%;
+	}
   }
-  aside {
-    float: right;
-    width: 59.3680297%;
-  }
+
+/*============Text=================**/
+.checkbox-text{
+	font-size: 1.5em;
+	display: inline-block;
+	margin-bottom: 25px;
+	background: yellow;
 }
 
 .clear{
@@ -76,3 +95,37 @@ aside {
 	position:relative;
 	top:1px;
 }
+
+/*============== Headings ================= */
+
+.h1{
+	font-size: 2.5em;
+	font-weight: bold;
+	text-align: center;
+	height: 2em;
+}
+
+.h2{
+	font-size: 1.5em;
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+.h3{
+	font-size: 1.5em;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
