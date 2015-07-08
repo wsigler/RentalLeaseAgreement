@@ -29,8 +29,6 @@
 	            <li><a href="#">Help</a></li>
 	          </ul>
 	          <form class="navbar-form navbar-right">
-	          	<button id="submit" onclick="SaveData();" class="btn btn-default">Save</button>
-				<button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn btn-default">Sign Lease</button>
 	            <input type="text" class="form-control" placeholder="Search...">
 	          </form>
 	        </div>
@@ -116,87 +114,98 @@
 		    		Lease and Deposit Information
 		    	</div>
 		    	<div class="panel-body">
-		    	<div class="row">
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			
+			    	<div class="row">
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			Trash Pick-up
+			    		</div>
 		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			
+		    		<div class="row">
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			<input id="leaseStartDate" type="text" class="form-control"  placeholder="Start Date"/>
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			<input id="leaseEndDate" type="text" class="form-control" placeholder="End Date"/>
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			<input id="depositDate" type="text" class="form-control" placeholder="Deposit Date"/>
+			    		</div>
+			    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    			<select id="trashPickup" class="form-control">
+								<option value="-1">-- Select --</option>
+							</select>
+			    		</div>
 		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			
+		    		<div class="row">
+			    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			    			Rent
+			    		</div>
+			    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			    			Deposit
+			    		</div>
+			    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			    			Pet Deposit
+			    		</div>
 		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			Trash Pick-up
+		    		<div class="row">
+			    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				    		<form class="form-inline">
+							  <div class="form-group">
+							    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+							    <div class="input-group">
+							      <div class="input-group-addon">$</div>
+							      <input type="text" class="form-control" id="rentAmount" placeholder="Rent">
+							      <div class="input-group-addon">.00</div>
+							    </div>
+							  </div>
+							</form>
+			    		</div>
+			    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			    			<form class="form-inline">
+							  <div class="form-group">
+							    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+							    <div class="input-group">
+							      <div class="input-group-addon">$</div>
+							      <input type="text" class="form-control" id="depositAmount" placeholder="Deposit">
+							      <div class="input-group-addon">.00</div>
+							    </div>
+							  </div>
+							</form>
+		    			</div>
+		    			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		    				<form class="form-inline">
+							  <div class="form-group">
+							    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+							    <div class="input-group">
+							      <div class="input-group-addon">$</div>
+							      <input type="text" class="form-control" id="petDepositAmount" placeholder="Pet Deposit">
+							      <div class="input-group-addon">.00</div>
+							    </div>
+							  </div>
+							</form>
+			    		</div>
 		    		</div>
-	    		</div>
-	    		<div class="row">
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			<input id="leaseStartDate" type="text" class="form-control"  placeholder="Start Date"/>
-		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			<input id="leaseEndDate" type="text" class="form-control" placeholder="End Date"/>
-		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			<input id="depositDate" type="text" class="form-control" placeholder="Deposit Date"/>
-		    		</div>
-		    		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-		    			<select id="trashPickup" class="form-control">
-							<option value="-1">-- Select --</option>
-						</select>
-		    		</div>
-	    		</div>
-	    		<div class="row">
-		    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		    			Rent
-		    		</div>
-		    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		    			Deposit
-		    		</div>
-		    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		    			Pet Deposit
-		    		</div>
-	    		</div>
-	    		<div class="row">
-		    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			    		<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-						    <div class="input-group">
-						      <div class="input-group-addon">$</div>
-						      <input type="text" class="form-control" id="rentAmount" placeholder="Rent">
-						      <div class="input-group-addon">.00</div>
-						    </div>
-						  </div>
-						</form>
-		    		</div>
-		    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-		    			<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-						    <div class="input-group">
-						      <div class="input-group-addon">$</div>
-						      <input type="text" class="form-control" id="depositAmount" placeholder="Deposit">
-						      <div class="input-group-addon">.00</div>
-						    </div>
-						  </div>
-						</form>
-	    			</div>
-	    			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-	    				<form class="form-inline">
-						  <div class="form-group">
-						    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
-						    <div class="input-group">
-						      <div class="input-group-addon">$</div>
-						      <input type="text" class="form-control" id="petDepositAmount" placeholder="Pet Deposit">
-						      <div class="input-group-addon">.00</div>
-						    </div>
-						  </div>
-						</form>
-		    		</div>
-	    		</div>
+			    </div>
 		    </div>
-		</div>
+			<div class="row">
+		    	<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+		    	</div>
+		    	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+	    			<button id="submit" onclick="SaveData();" class="btn btn-sucess">Save</button>
+				</div>
+			    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+	    			<button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn btn-sucess">Sign Lease</button>
+	    		</div>
+    		</div>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <script src="script/bootstrap/bootstrap.min.js"></script>
 	    <script src="script/leaseform.js"></script>
