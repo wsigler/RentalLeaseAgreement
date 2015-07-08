@@ -51,7 +51,9 @@ input[type=checkbox]{
 	margin-bottom: 25px;
 	background: yellow;
 }
-
+.spacer{
+	margin-top:60px;
+}
 .clear{
 	clear: both;
 }

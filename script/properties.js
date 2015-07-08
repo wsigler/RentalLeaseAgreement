@@ -85,7 +85,6 @@ function init(){
                     $('#petDepositAmount').val('');
                     $('#trashPickup').val('-1');
                 }
-                $("#propertyList").append('<a href="Properties.html?id=' + counter + '">' + attributes.val().Address + ' ' + attributes.val().City +'</a><br/>');
             });
         });
     });
