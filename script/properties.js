@@ -10,8 +10,6 @@ function init(){
     var queryString = getUrlVars();
     var propertyIndex = -1;
     
-    $('#btnUpdate').css('display', 'none');
-    $('#btnSubmit').css('display', 'inline');
     if($('#trashPickup > option').length < 2)
     {
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -24,6 +22,22 @@ function init(){
       if(value === "id")
       {
         propertyIndex = queryString[value].toString();
+        $("#btnSubmit").click(function(){ EditData(); });
+        $("#btnSubmit").html('Update');
+        $('#addressHeaders').css('display', 'inline');
+        $('#paymentHeaders').css('display', 'inline');
+        $('#amenitiesHeaders').css('display', 'inline');
+        $('#amenitiesHeaders2').css('display', 'inline');  
+      }
+      else
+      {
+        $("#btnSubmit").click(function(){ SaveData(); });
+        $("#btnSubmit").html('Save');
+        $('#addressHeaders').css('display', 'none');
+        $('#paymentHeaders').css('display', 'none');
+        $('#amenitiesHeaders').css('display', 'none');
+        $('#amenitiesHeaders2').css('display', 'none');
+        $('#amenitiesRow2').css('margin-top', '10px');
       }
     });
 
@@ -51,8 +65,6 @@ function init(){
                     if(propertyIndex == counter)
                     {
                         //set the input values
-                        $('#btnSubmit').css('display', 'none');
-                        $('#btnUpdate').css('display', 'inline');
                         $('#address').val(attributes.val().Address);
                         $('#city').val(attributes.val().City);
                         $('#state').val(attributes.val().State);

@@ -25,7 +25,7 @@ function init(){
             counter++;
             var tenantRef = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants");
             tenantRef.child("Tenant" + counter).on("value", function(attributes){
-            $('#tenantList > tbody:last-child').append('<tr><td>' + counter + '</td><td>' + attributes.val().Property + '</td><td>' + attributes.val().PrimaryName + '</td><td>' + attributes.val().SecondaryName + '</td><td><a href="TenantManagement.html?id="' + counter + '>View</a></td></tr>');
+            $('#tenantList > tbody:last-child').append('<tr><td>' + counter + '</td><td>' + attributes.val().Property + '</td><td>' + attributes.val().PrimaryName + '</td><td>' + attributes.val().SecondaryName + '</td><td><a href="TenantManagement.html?id=' + counter + '"">View</a></td></tr>');
             });
         });
     });

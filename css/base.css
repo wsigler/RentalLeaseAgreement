@@ -12,7 +12,12 @@ header{
 	max-width: 350px;
 }
 .container{
-	max-width: 800px;
+	width: 100%;
+	padding-right: 20%;
+	padding-left: 20%;
+}
+.float-rt{
+	float: right;
 }
 
 section {
