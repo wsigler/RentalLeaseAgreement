@@ -65,7 +65,7 @@ function init(){
                         $('#rentAmount').val(attributes.val().RentAmount);
                         $('#depositAmount').val(attributes.val().DepositAmount);
                         $('#petDepositAmount').val(attributes.val().PetDepositAmount);
-                        $('#trashPickup').text(attributes.val().TrashDay);
+                        $('#trashPickup').val(attributes.val().TrashDay);
                     }
                 }
                 else
@@ -83,7 +83,7 @@ function init(){
                     $('#rentAmount').val('');
                     $('#depositAmount').val('');
                     $('#petDepositAmount').val('');
-                    $('#trashPickup').val(-1);
+                    $('#trashPickup').val('-1');
                 }
                 $("#propertyList").append('<a href="Properties.html?id=' + counter + '">' + attributes.val().Address + ' ' + attributes.val().City +'</a><br/>');
             });

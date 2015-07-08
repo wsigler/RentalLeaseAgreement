@@ -66,7 +66,7 @@ function PrepopulatePropertyData(){
             $('#rentAmount').val('');
             $('#depositAmount').val('');
             $('#petDepositAmount').val('');
-            $('#trashPickup').val(-1);
+            $('#trashPickup').val('-1');
         }
     });
 }
@@ -91,7 +91,7 @@ function SaveData(){
         DepositDate : $( "#depositDate").val(),
         NumbersAdult : $( "#numbersAdult :selected" ).text(), 
         NumberChildren : $( "#numbersChildren :selected" ).text(),
-        TrashPickup : $( "#trashPickup :selected" ).text()
+        TrashPickup : $( "#trashPickup :selected" ).val()
     });
     alert('Data Saved');
 }
