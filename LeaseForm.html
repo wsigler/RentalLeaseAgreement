@@ -13,6 +13,13 @@
 	</head>
 	<body>
 		<div class="container">
+			<header>Property</header>
+			<section>Address</section>
+			<aside>
+				<select id="properties">
+                	<option value="0">-- Select --</option>
+            	</select>
+			</aside>
 			<header>Primary Tenant</header>
 			<section>Name</section>
 			<aside><input type="text" id="primaryTenant" class="text-long"/></aside>
@@ -43,20 +50,6 @@
 		        </select>
 			</aside>
 			<div class="clear"></div>
-			<header>Property</header>
-			<section>Address</section>
-			<aside>
-				<select id="properties">
-                	<option value="0">-- Select --</option>
-            	</select>
-			</aside>
-			<section>Trash Pick-up</section>
-			<aside>
-				<select id="trashPickup">
-					<option value="-1">-- Select --</option>
-				</select>
-			</aside>
-			<div class="clear"></div>
 			<header>Lease and Deposit Information</header>
 			<section>Rent</section>
 			<aside><input type="text" id="rentAmount" class="text1"/></aside>
@@ -70,9 +63,16 @@
 			<aside><input id="depositDate" type="text"/></aside>
 			<section>Pet Deposit</section>
 			<aside><input type="text" id="petDepositAmount" class="text1"></aside>
+			<section>Trash Pick-up</section>
+			<aside>
+				<select id="trashPickup">
+					<option value="-1">-- Select --</option>
+				</select>
+			</aside>
 			<div class="clear"></div>
 			<section><button id="submit" onclick="SaveData();" class="btn-lease">Save</button></section>
 			<aside><button id="viewLease" onclick="javascript:window.location.href = 'Lease.html'" class="btn-lease">Sign Lease</button></aside>
+
 		</div>
 	</body>
 </html>

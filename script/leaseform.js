@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var ref = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm");
+    var ref = new Firebase("https://intense-heat-8777.firebaseio.com");
     ref.child("Properties").on("value", function(properties){
         // Given a DataSnapshot containing a child "fred" and a child "wilma", this callback
         // function will be called twice
@@ -11,7 +11,7 @@ $(document).ready(function() {
             
             // childData will be the actual contents of the child
             counter++;
-            var propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/Properties");
+            var propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/Properties");
             propertyRef.child("Property" + counter).on("value", function(attributes){
                 var x = attributes.val();
                 $("#properties").append('<option value=' + counter + '>' + x.Address + " " + x.City + ", " + x.State + " " + x.Zip + '</option>');
@@ -26,10 +26,13 @@ $(document).ready(function() {
         $(function() {
             $( "#depositDate" ).datepicker();
           });
-        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        $.each(days, function( index, value ) {
-          $("#trashPickup").append('<option value=' + index + '>' + value + '</option>');
-        });
+        if($('#trashPickup > option').length < 2)
+        {
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            $.each(days, function( index, value ) {
+              $("#trashPickup").append('<option value=' + index + '>' + value + '</option>');
+            });
+        }
 
         $(function(){
             for(x = 1; x < 6; x++)
@@ -39,14 +42,41 @@ $(document).ready(function() {
             }
         });
     });
+    $( "#properties" ).change(function() {
+        //alert( "Handler for .change() called."  + $('#properties :selected').val());
+        PrepopulatePropertyData();
+
+    });
 });
+
+function PrepopulatePropertyData(){
+    var counter = $('#properties :selected').val();
+    var propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/Properties");
+    propertyRef.child("Property" + counter).on("value", function(attributes){
+        if(counter > -1)
+        {
+            //set the input values
+            $('#rentAmount').val(attributes.val().RentAmount);
+            $('#depositAmount').val(attributes.val().DepositAmount);
+            $('#petDepositAmount').val(attributes.val().PetDepositAmount);
+            $('#trashPickup').val(attributes.val().TrashDay);
+        }
+        else
+        {
+            $('#rentAmount').val('');
+            $('#depositAmount').val('');
+            $('#petDepositAmount').val('');
+            $('#trashPickup').val(-1);
+        }
+    });
+}
 
 function SaveData(){
     
     var ref = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/");
     var usersRef = ref.child("LeaseInfo");
     usersRef.set({
-        Property : $( "#properties option:selected" ).text(),
+        Property : $( "#properties :selected" ).text(),
         PrimaryTenant : $("#primaryTenant").val(),
         PrimaryPhoneNumber: $('#primaryPhoneNumber').val(),
         SecondaryTenant : $("#secondaryTenant").val(),
@@ -59,9 +89,9 @@ function SaveData(){
         LeaseStartDate : $( "#leaseStartDate").val(),
         LeaseEndDate: $( "#leaseEndDate").val(),
         DepositDate : $( "#depositDate").val(),
-        NumbersAdult : $( "#numbersAdult option:selected" ).text(), 
-        NumberChildren : $( "#numbersChildren option:selected" ).text(),
-        TrashPickup : $( "#trashPickup option:selected" ).text()
+        NumbersAdult : $( "#numbersAdult :selected" ).text(), 
+        NumberChildren : $( "#numbersChildren :selected" ).text(),
+        TrashPickup : $( "#trashPickup :selected" ).text()
     });
     alert('Data Saved');
 }
