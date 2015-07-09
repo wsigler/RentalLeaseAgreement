@@ -157,7 +157,7 @@ function SaveTenantInfo(){
         PrimaryPhone: $('#primaryPhoneNumber').val(),
         Property: $('#properties :selected').val(),
         RentAmount: $('#rentAmount').val(),
-        SecondaryEmail : $( "#secondaryEmail" ).val(),
+        SecondaryEmail : $("#secondaryEmail").val(),
         SecondaryName: $("#secondaryTenant").val(),
         SecondaryPhone: $('#secondaryPhoneNumber').val()
     });

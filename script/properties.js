@@ -26,13 +26,7 @@ function init(){
         });
     }
     
-    $("#btnSubmit").click(function(){ SaveData(); });
-    $("#btnSubmit").html('Save');
-    $('#addressHeaders').css('display', 'none');
-    $('#paymentHeaders').css('display', 'none');
-    $('#amenitiesHeaders').css('display', 'none');
-    $('#amenitiesHeaders2').css('display', 'none');
-    $('#amenitiesRow2').css('margin-top', '10px');
+    var isNew = true;
 
     $.each(queryString, function( index, value ) {
       if(value === "id")
@@ -45,9 +39,20 @@ function init(){
         $('#amenitiesHeaders').css('display', 'inline');
         $('#amenitiesHeaders2').css('display', 'inline');  
         $('#amenitiesRow2').css('margin-top', '0px');
+        isNew = false;
       }
     });
 
+    if(isNew)
+    {
+        $("#btnSubmit").click(function(){ SaveData(); });
+        $("#btnSubmit").html('Save');
+        $('#addressHeaders').css('display', 'none');
+        $('#paymentHeaders').css('display', 'none');
+        $('#amenitiesHeaders').css('display', 'none');
+        $('#amenitiesHeaders2').css('display', 'none');
+        $('#amenitiesRow2').css('margin-top', '10px');
+    }
     $(function(){
         for(x = 1; x < 5; x++)
         {
@@ -144,7 +149,7 @@ function SaveData(){
     });
     
     alert('Data Saved');
-    window.location.href("index.html");
+    window.location.href = "index.html";
 }
 function EditData(){
     var queryString = getUrlVars();
@@ -180,5 +185,5 @@ function EditData(){
     $("#propertyList a").remove();
     $("#propertyList br").remove();
     alert('Data Updated');
-    window.location.href("index.html");
+    window.location.href = "index.html";
 }

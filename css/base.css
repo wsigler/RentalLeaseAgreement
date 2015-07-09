@@ -25,7 +25,11 @@ body {
 	padding: 0; 
 	border: 1px solid #c4caac;
 }
-
+@media print {
+.noPrint {
+    display:none;
+  }
+}
 
 
 

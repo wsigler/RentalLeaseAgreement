@@ -18,15 +18,7 @@ function init(){
         });
     });
 
-    $("#btnSubmit").click(function(){ SaveData(); });
-    $("#btnSubmit").html('Save');
-    $('#primaryHeaders').css('display', 'none');
-    $('#secondaryHeaders').css('display', 'none');
-    $('#addressHeaders').css('display', 'none');
-    $('#paymentHeaders').css('display', 'none');
-    $('#occupancyHeadings').css('display', 'none');
-    $('#paymentDateHeaders').css('display', 'none');
-    $('#paymentRow2').css('margin-top', '10px');
+    var isNew = true;
     
     $.each(queryString, function( index, value ) {
       if(value === "id")
@@ -41,8 +33,22 @@ function init(){
         $('#occupancyHeadings').css('display', 'inline');
         $('#paymentDateHeaders').css('display', 'inline');
         $('#paymentRow2').css('margin-top', '0px');
+        isNew = false;
       }
     });
+    
+    if(isNew)
+    {
+        $("#btnSubmit").click(function(){ SaveData(); });
+        $("#btnSubmit").html('Save');
+        $('#primaryHeaders').css('display', 'none');
+        $('#secondaryHeaders').css('display', 'none');
+        $('#addressHeaders').css('display', 'none');
+        $('#paymentHeaders').css('display', 'none');
+        $('#occupancyHeadings').css('display', 'none');
+        $('#paymentDateHeaders').css('display', 'none');
+        $('#paymentRow2').css('margin-top', '10px');
+    }
 
     SetDatePickers();
     SetDropdowns();
@@ -76,14 +82,14 @@ function init(){
                         var sPhone = attributes.val().SecondaryPhone.toString();
                         var formatedSPhone = (sPhone.length === 10) ? '(' + sPhone.substr(0, 3) + ') ' + sPhone.substr(3, 3) + '-' + sPhone.substr(6,4) : sPhone;
                         var propertyId = attributes.val().Property.toString();
-
+                        $('#propertyId').val(propertyId);
                         propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/Properties");
                         propertyRef.child("Property" + propertyId).on("value", function(propAttr){
                             //TODO: For address, need to call the property json
-                        $('#address').val(propAttr.val().Address);
-                        $('#city').val(propAttr.val().City);
-                        $('#state').val(propAttr.val().State);
-                        $('#zip').val(propAttr.val().Zip);          
+                            $('#address').val(propAttr.val().Address);
+                            $('#city').val(propAttr.val().City);
+                            $('#state').val(propAttr.val().State);
+                            $('#zip').val(propAttr.val().Zip);          
                         });
                         
                         $('#primaryTenant').val(attributes.val().PrimaryName);
@@ -201,17 +207,17 @@ function SaveData(){
         NumberChildren : $( "#numbersChildren :selected" ).text(),
         PetDeposit : $("#petDepositAmount").val(),
         PrimaryEmail : $( "#primaryEmail" ).val(),
-        PrimaryName: $("#PrimaryName").val(),
+        PrimaryName: $("#primaryTenant").val(),
         PrimaryPhone: $('#primaryPhoneNumber').val(),
-        Property: $('#properties :selected').val(),
+        Property: $('#propertyId').val(),
         RentAmount: $('#rentAmount').val(),
         SecondaryEmail : $( "#secondaryEmail" ).val(),
-        SecondaryName: $("#secondaryName").val(),
+        SecondaryName: $("#secondaryTenant").val(),
         SecondaryPhone: $('#secondaryPhoneNumber').val()
     });
 
     alert('Data Saved');
-    window.location.href("index.html");
+    window.location.href = "index.html";
 }
 
 function EditData(){
@@ -237,14 +243,14 @@ function EditData(){
         NumberChildren : $( "#numbersChildren :selected" ).text(),
         PetDeposit : $("#petDepositAmount").val(),
         PrimaryEmail : $( "#primaryEmail" ).val(),
-        PrimaryName: $("#PrimaryName").val(),
+        PrimaryName: $("#primaryTenant").val(),
         PrimaryPhone: $('#primaryPhoneNumber').val(),
-        Property: $('#properties :selected').val(),
+        Property: $('#propertyId').val(),
         RentAmount: $('#rentAmount').val(),
         SecondaryEmail : $( "#secondaryEmail" ).val(),
-        SecondaryName: $("#secondaryName").val(),
+        SecondaryName: $("#secondaryTenant").val(),
         SecondaryPhone: $('#secondaryPhoneNumber').val()
     });
     alert('Data Updated');
-    window.location.href("index.html");
+    window.location.href = "index.html";
 }
