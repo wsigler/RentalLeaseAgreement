@@ -9,6 +9,24 @@ function init(){
     var ref = new Firebase("https://intense-heat-8777.firebaseio.com");
     var queryString = getUrlVars();
     var tenantIndex = -1;
+
+    var nextId = 1;
+    ref.child("Tenants").on("value", function(tenants){
+        tenants.forEach(function(tenant) {
+            nextId++;
+            $("#nextId").val(nextId);
+        });
+    });
+
+    $("#btnSubmit").click(function(){ SaveData(); });
+    $("#btnSubmit").html('Save');
+    $('#primaryHeaders').css('display', 'none');
+    $('#secondaryHeaders').css('display', 'none');
+    $('#addressHeaders').css('display', 'none');
+    $('#paymentHeaders').css('display', 'none');
+    $('#occupancyHeadings').css('display', 'none');
+    $('#paymentDateHeaders').css('display', 'none');
+    $('#paymentRow2').css('margin-top', '10px');
     
     $.each(queryString, function( index, value ) {
       if(value === "id")
@@ -22,22 +40,13 @@ function init(){
         $('#paymentHeaders').css('display', 'inline');
         $('#occupancyHeadings').css('display', 'inline');
         $('#paymentDateHeaders').css('display', 'inline');
-      }
-      else
-      {
-        $("#btnSubmit").click(function(){ SaveData(); });
-        $("#btnSubmit").html('Save');
-        $('#primaryHeaders').css('display', 'none');
-        $('#secondaryHeaders').css('display', 'none');
-        $('#addressHeaders').css('display', 'none');
-        $('#paymentHeaders').css('display', 'none');
-        $('#occupancyHeadings').css('display', 'none');
-        $('#paymentDateHeaders').css('display', 'none');
-        $('#paymentRow2').css('margin-top', '10px');
+        $('#paymentRow2').css('margin-top', '0px');
       }
     });
+
     SetDatePickers();
     SetDropdowns();
+
     $('#primaryPhoneNumber').focusout(function(){
         SetPhoneMask('primaryPhoneNumber');
     });
@@ -110,8 +119,8 @@ function init(){
 
                     $('#address').val('');
                     $('#city').val('');
-                    //$('#state').val('');
-                    //$('#zip').val('');                        
+                    $('#state').val('');
+                    $('#zip').val('');                        
 
                     $('#leaseStartDate').val('');
                     $('#leaseEndDate').val('');
@@ -122,8 +131,7 @@ function init(){
                     $('#petDepositAmount').val('');
 
                     $('#numbersAdult').val('0');
-                    $('#numbersChildren').val('0');
-                    
+                    $('#numbersChildren').val('0'); 
                 }
             });
         });
@@ -180,73 +188,63 @@ function getUrlVars()
 
 function SaveData(){
     
-    var counter = 0;
-    var ref = new Firebase("https://intense-heat-8777.firebaseio.com/");
-    ref.child("Properties").on("value", function(properties){
-        properties.forEach(function(property) {
-            counter++;
-        });
-    });
-    counter++;
-    var newPropertyName = "Property" + counter;
+    var newTenantName = "Tenant" + $("#nextId").val();
     
-    var newProperty = new Firebase("https://intense-heat-8777.firebaseio.com/Properties/");
-    var usersRef = newProperty.child(newPropertyName);
+    var newTenant = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants/");
+    var usersRef = newProperty.child(newTenantName);
     usersRef.set({
-        Address : $("#address").val(),
-        Bathrooms : $( "#numberOfBathrooms option:selected" ).val(),
-        Bedrooms : $( "#numberOfBedrooms option:selected" ).val(),
-        CentralAC: $( "#centralAC option:selected" ).val(),
-        City : $('#city').val(),
-        SquareFootage : $("#squareFootage").val(),
-        State : $("#state").val(),
-        WDConnection : $( "#wdConnection option:selected" ).val(),
-        Zip: $("#zip").val(),
+        DepositAmount : $("#depositAmount").val(),
+        DepositDate : $( "#depositDate" ).val(),
+        LeaseEndDate : $( "#leaseEndDate" ).val(),
+        LeaseStartDate: $( "#leaseStartDate" ).val(),
+        NumbersAdult : $( "#numbersAdult :selected" ).text(), 
+        NumberChildren : $( "#numbersChildren :selected" ).text(),
+        PetDeposit : $("#petDepositAmount").val(),
+        PrimaryEmail : $( "#primaryEmail" ).val(),
+        PrimaryName: $("#PrimaryName").val(),
+        PrimaryPhone: $('#primaryPhoneNumber').val(),
+        Property: $('#properties :selected').val(),
         RentAmount: $('#rentAmount').val(),
-        DepositAmount: $('#depositAmount').val(),
-        PetDepositAmount: $('#petDepositAmount').val()
-        
+        SecondaryEmail : $( "#secondaryEmail" ).val(),
+        SecondaryName: $("#secondaryName").val(),
+        SecondaryPhone: $('#secondaryPhoneNumber').val()
     });
-    
-    
-    $("#propertyList a").remove();
-    $("#propertyList br").remove();
+
     alert('Data Saved');
-    init();
+    window.location.href("index.html");
 }
 
 function EditData(){
     var queryString = getUrlVars();
-    var propertyIndex = -1;
+    var tenantIndex = -1;
     
     $.each(queryString, function( index, value ) {
       if(value === "id")
       {
-        propertyIndex = queryString[value].toString();
+        tenantIndex = queryString[value].toString();
       }
     });
-    var newPropertyName = "Property" + propertyIndex;
+    var newTenantName = "Tenant" + tenantIndex;
     
-    var newProperty = new Firebase("https://intense-heat-8777.firebaseio.com/Properties/");
-    var usersRef = newProperty.child(newPropertyName);
+    var newTenant = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants/");
+    var usersRef = newTenant.child(newTenantName);
     usersRef.set({
-        Address : $("#address").val(),
-        Bathrooms : $( "#numberOfBathrooms option:selected" ).val(),
-        Bedrooms : $( "#numberOfBedrooms option:selected" ).val(),
-        CentralAC: $( "#centralAC option:selected" ).val(),
-        City : $('#city').val(),
-        SquareFootage : $("#squareFootage").val(),
-        State : $("#state").val(),
-        WDConnection : $( "#wdConnection option:selected" ).val(),
-        Zip: $("#zip").val(),
+        DepositAmount : $("#depositAmount").val(),
+        DepositDate : $( "#depositDate" ).val(),
+        LeaseEndDate : $( "#leaseEndDate" ).val(),
+        LeaseStartDate: $( "#leaseStartDate" ).val(),
+        NumbersAdult : $( "#numbersAdult :selected" ).text(), 
+        NumberChildren : $( "#numbersChildren :selected" ).text(),
+        PetDeposit : $("#petDepositAmount").val(),
+        PrimaryEmail : $( "#primaryEmail" ).val(),
+        PrimaryName: $("#PrimaryName").val(),
+        PrimaryPhone: $('#primaryPhoneNumber').val(),
+        Property: $('#properties :selected').val(),
         RentAmount: $('#rentAmount').val(),
-        DepositAmount: $('#depositAmount').val(),
-        PetDepositAmount: $('#petDepositAmount').val()
+        SecondaryEmail : $( "#secondaryEmail" ).val(),
+        SecondaryName: $("#secondaryName").val(),
+        SecondaryPhone: $('#secondaryPhoneNumber').val()
     });
-    
-    
-    $("#propertyList a").remove();
-    $("#propertyList br").remove();
     alert('Data Updated');
-    init();
+    window.location.href("index.html");
 }

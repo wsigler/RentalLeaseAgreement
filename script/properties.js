@@ -6,7 +6,15 @@ $(document).ready(function() {
 });
 
 function init(){
-    var ref = new Firebase("https://intense-heat-8777.firebaseio.com");
+    var counter = 1;
+    var ref = new Firebase("https://intense-heat-8777.firebaseio.com/");
+    ref.child("Properties").on("value", function(properties){
+        properties.forEach(function(property) {
+            counter++;
+            $("#nextId").val(counter);
+        });
+    });
+    
     var queryString = getUrlVars();
     var propertyIndex = -1;
     
@@ -18,6 +26,14 @@ function init(){
         });
     }
     
+    $("#btnSubmit").click(function(){ SaveData(); });
+    $("#btnSubmit").html('Save');
+    $('#addressHeaders').css('display', 'none');
+    $('#paymentHeaders').css('display', 'none');
+    $('#amenitiesHeaders').css('display', 'none');
+    $('#amenitiesHeaders2').css('display', 'none');
+    $('#amenitiesRow2').css('margin-top', '10px');
+
     $.each(queryString, function( index, value ) {
       if(value === "id")
       {
@@ -28,16 +44,7 @@ function init(){
         $('#paymentHeaders').css('display', 'inline');
         $('#amenitiesHeaders').css('display', 'inline');
         $('#amenitiesHeaders2').css('display', 'inline');  
-      }
-      else
-      {
-        $("#btnSubmit").click(function(){ SaveData(); });
-        $("#btnSubmit").html('Save');
-        $('#addressHeaders').css('display', 'none');
-        $('#paymentHeaders').css('display', 'none');
-        $('#amenitiesHeaders').css('display', 'none');
-        $('#amenitiesHeaders2').css('display', 'none');
-        $('#amenitiesRow2').css('margin-top', '10px');
+        $('#amenitiesRow2').css('margin-top', '0px');
       }
     });
 
@@ -116,15 +123,7 @@ function getUrlVars()
 
 function SaveData(){
     
-    var counter = 0;
-    var ref = new Firebase("https://intense-heat-8777.firebaseio.com/");
-    ref.child("Properties").on("value", function(properties){
-        properties.forEach(function(property) {
-            counter++;
-        });
-    });
-    counter++;
-    var newPropertyName = "Property" + counter;
+    var newPropertyName = "Property" + $("#nextId").val();
     
     var newProperty = new Firebase("https://intense-heat-8777.firebaseio.com/Properties/");
     var usersRef = newProperty.child(newPropertyName);
@@ -144,11 +143,8 @@ function SaveData(){
         TrashDay: $('#trashPickup').val()
     });
     
-    
-    $("#propertyList a").remove();
-    $("#propertyList br").remove();
     alert('Data Saved');
-    init();
+    window.location.href("index.html");
 }
 function EditData(){
     var queryString = getUrlVars();
@@ -184,5 +180,5 @@ function EditData(){
     $("#propertyList a").remove();
     $("#propertyList br").remove();
     alert('Data Updated');
-    init();
+    window.location.href("index.html");
 }

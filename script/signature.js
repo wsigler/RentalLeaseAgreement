@@ -1,7 +1,7 @@
 function signatureCapture(name) {
 	var canvas = document.getElementById(name);
 	var context = canvas.getContext("2d");
-	canvas.width = 700;
+	canvas.width = 800;
 	canvas.height = 100;
 	context.fillStyle = "#fff";
 	context.strokeStyle = "#444";
