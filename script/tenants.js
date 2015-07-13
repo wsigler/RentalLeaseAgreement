@@ -39,7 +39,7 @@ function init(){
       }
     });
     
-    if(isNew)
+    /*if(isNew)
     {
         $("#btnSubmit").click(function(){ SaveData(); });
         $("#btnSubmit").html('Save');
@@ -51,7 +51,7 @@ function init(){
         $('#occupancyHeadings').css('display', 'none');
         $('#paymentDateHeaders').css('display', 'none');
         $('#paymentRow2').css('margin-top', '10px');
-    }
+    }*/
 
     SetDatePickers();
     SetDropdowns();
@@ -63,88 +63,79 @@ function init(){
         SetPhoneMask('secondaryPhoneNumber');
     });
     
-    
-    ref.child("Tenants").on("value", function(properties){
-        // Given a DataSnapshot containing a child "fred" and a child "wilma", this callback
-        // function will be called twice
-        var counter = 0;
-        properties.forEach(function(tenant) {
-          
-            var key = tenant.key();
-            // childData will be the actual contents of the child
-            counter++;
-            var tenantRef = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants");
-            tenantRef.child("Tenant" + counter).on("value", function(attributes){
-                if(tenantIndex > -1)
-                {
-                    if(tenantIndex == counter)
-                    {
-                        var pPhone = attributes.val().PrimaryPhone.toString();
-                        var formatedPhone = (pPhone.length === 10) ? '(' + pPhone.substr(0, 3) + ') ' + pPhone.substr(3, 3) + '-' + pPhone.substr(6,4) : pPhone;
-                        
-                        var sPhone = attributes.val().SecondaryPhone.toString();
-                        var formatedSPhone = (sPhone.length === 10) ? '(' + sPhone.substr(0, 3) + ') ' + sPhone.substr(3, 3) + '-' + sPhone.substr(6,4) : sPhone;
-                        var propertyId = attributes.val().Property.toString();
-                        $('#propertyId').val(propertyId);
-                        propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/Properties");
-                        propertyRef.child("Property" + propertyId).on("value", function(propAttr){
-                            //TODO: For address, need to call the property json
-                            $('#address').val(propAttr.val().Address);
-                            $('#city').val(propAttr.val().City);
-                            $('#state').val(propAttr.val().State);
-                            $('#zip').val(propAttr.val().Zip);          
-                        });
-                        
-                        $('#primaryTenant').val(attributes.val().PrimaryName);
-                        $('#primaryPhoneNumber').val(formatedPhone);
-                        $('#primaryEmail').val(attributes.val().PrimaryEmail);
-
-                        $('#secondaryTenant').val(attributes.val().SecondaryName);
-                        $('#secondaryPhoneNumber').val(formatedSPhone);
-                        $('#secondaryEmail').val(attributes.val().SecondaryEmail);
-
-                        $('#leaseStartDate').val(attributes.val().LeaseStartDate);
-                        $('#leaseEndDate').val(attributes.val().LeaseEndDate);
-                        $('#depositDate').val(attributes.val().DepositDate);
-
-                        $('#rentAmount').val(attributes.val().RentAmount);
-                        $('#depositAmount').val(attributes.val().DepositAmount);
-                        $('#petDepositAmount').val(attributes.val().PetDeposit);
-
-                        $('#numbersAdult').val(attributes.val().NumbersAdult);
-                        $('#numbersChildren').val(attributes.val().NumberChildren);
-                        
-                    }
-                }
-                else
-                {
-                    $('#primaryTenant').val('');
-                    $('#primaryPhoneNumber').val('');
-                    $('#primaryEmail').val('');
-
-                    $('#secondaryTenant').val('');
-                    $('#secondaryPhoneNumber').val('');
-                    $('#secondaryEmail').val('');
-
-                    $('#address').val('');
-                    $('#city').val('');
-                    $('#state').val('');
-                    $('#zip').val('');                        
-
-                    $('#leaseStartDate').val('');
-                    $('#leaseEndDate').val('');
-                    $('#depositDate').val('');
-
-                    $('#rentAmount').val('');
-                    $('#depositAmount').val('');
-                    $('#petDepositAmount').val('');
-
-                    $('#numbersAdult').val('0');
-                    $('#numbersChildren').val('0'); 
-                }
+    if(tenantIndex > -1)
+    {
+        var tenantRef = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants");
+        tenantRef.child("Tenant" + tenantIndex).on("value", function(attributes){
+            var pPhone = attributes.val().PrimaryPhone.toString();
+            var formatedPhone = (pPhone.length === 10) ? '(' + pPhone.substr(0, 3) + ') ' + pPhone.substr(3, 3) + '-' + pPhone.substr(6,4) : pPhone;
+            
+            var sPhone = attributes.val().SecondaryPhone.toString();
+            var formatedSPhone = (sPhone.length === 10) ? '(' + sPhone.substr(0, 3) + ') ' + sPhone.substr(3, 3) + '-' + sPhone.substr(6,4) : sPhone;
+            var propertyId = attributes.val().Property.toString();
+            $('#propertyId').val(propertyId);
+            propertyRef = new Firebase("https://intense-heat-8777.firebaseio.com/Properties");
+            propertyRef.child("Property" + propertyId).on("value", function(propAttr){
+                //TODO: For address, need to call the property json
+                $('#address').val(propAttr.val().Address);
+                $('#city').val(propAttr.val().City);
+                $('#state').val(propAttr.val().State);
+                $('#zip').val(propAttr.val().Zip);          
             });
+            
+            $('#primaryTenant').val(attributes.val().PrimaryName);
+            $('#primaryPhoneNumber').val(formatedPhone);
+            $('#primaryEmail').val(attributes.val().PrimaryEmail);
+
+            $('#secondaryTenant').val(attributes.val().SecondaryName);
+            $('#secondaryPhoneNumber').val(formatedSPhone);
+            $('#secondaryEmail').val(attributes.val().SecondaryEmail);
+
+            $('#leaseStartDate').val(attributes.val().LeaseStartDate);
+            $('#leaseEndDate').val(attributes.val().LeaseEndDate);
+            $('#depositDate').val(attributes.val().DepositDate);
+
+            $('#rentAmount').val(attributes.val().RentAmount);
+            $('#depositAmount').val(attributes.val().DepositAmount);
+            $('#petDepositAmount').val(attributes.val().PetDeposit);
+
+            $('#numbersAdult').val(attributes.val().NumbersAdult);
+            $('#numbersChildren').val(attributes.val().NumberChildren);
+            if(attributes.val().Active.toString() === "1")
+            {
+                $("#isActive").prop("checked", true);
+            }
+            else{
+                $("#isArchived").prop("checked", true);
+            }
+            
         });
-    });
+     }
+     else{
+        $('#primaryTenant').val('');
+        $('#primaryPhoneNumber').val('');
+        $('#primaryEmail').val('');
+
+        $('#secondaryTenant').val('');
+        $('#secondaryPhoneNumber').val('');
+        $('#secondaryEmail').val('');
+
+        $('#address').val('');
+        $('#city').val('');
+        $('#state').val('');
+        $('#zip').val('');                        
+
+        $('#leaseStartDate').val('');
+        $('#leaseEndDate').val('');
+        $('#depositDate').val('');
+
+        $('#rentAmount').val('');
+        $('#depositAmount').val('');
+        $('#petDepositAmount').val('');
+
+        $('#numbersAdult').val('0');
+        $('#numbersChildren').val('0');
+     }           
 }
 
 function SetPhoneMask(phoneField)
@@ -162,7 +153,7 @@ function SetPhoneMask(phoneField)
 function SetDropdowns()
 {
     $(function(){
-        for(x = 1; x < 6; x++)
+        for(x = 0; x < 6; x++)
         {
             $("#numbersAdult").append('<option value=' + x + '>' + x + '</option>');
             $("#numbersChildren").append('<option value=' + x + '>' + x + '</option>');
@@ -195,7 +186,7 @@ function getUrlVars()
     return vars;
 }
 
-function SaveData(){
+/*function SaveData(){
     
     var newTenantName = "Tenant" + $("#nextId").val();
     
@@ -222,7 +213,7 @@ function SaveData(){
     alert('Data Saved');
     window.location.href = "index.html";
 }
-
+*/
 function EditData(){
     var queryString = getUrlVars();
     var tenantIndex = -1;
@@ -252,7 +243,8 @@ function EditData(){
         RentAmount: $('#rentAmount').val(),
         SecondaryEmail : $( "#secondaryEmail" ).val(),
         SecondaryName: $("#secondaryTenant").val(),
-        SecondaryPhone: $('#secondaryPhoneNumber').val()
+        SecondaryPhone: $('#secondaryPhoneNumber').val(),
+        Active: $('input[name=optionsRadios]:checked').val()
     });
     alert('Data Updated');
     window.location.href = "index.html";
@@ -260,5 +252,13 @@ function EditData(){
 
 function Resign()
 {
-    alert('coming soon');
+    var queryString = getUrlVars();
+    var id;
+    $.each(queryString, function( index, value ) {
+      if(value === "id")
+      {
+        id = queryString[value].toString();
+      }
+    });
+    window.location.href = "LeaseAgreement.html?id=" + id;
 }

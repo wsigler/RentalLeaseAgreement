@@ -25,7 +25,12 @@ function init(){
             counter++;
             var tenantRef = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants");
             tenantRef.child("Tenant" + counter).on("value", function(attributes){
-            $('#tenantList > tbody:last-child').append('<tr><td>' + counter + '</td><td>' + attributes.val().Property + '</td><td>' + attributes.val().PrimaryName + '</td><td>' + attributes.val().SecondaryName + '</td><td><a href="TenantManagement.html?id=' + counter + '"">View</a></td></tr>');
+                if(attributes.val().Active.toString() === "1"){
+                    $('#tenantList > tbody:last-child').append('<tr><td>' + counter + '</td><td>' + attributes.val().Property + '</td><td>' + attributes.val().PrimaryName + '</td><td>' + attributes.val().SecondaryName + '</td><td><a href="TenantManagement.html?id=' + counter + '"">View</a></td></tr>');
+                }
+                else if(attributes.val().Active.toString() === "0"){
+                    $('#archivedTenantList > tbody:last-child').append('<tr><td>' + counter + '</td><td>' + attributes.val().Property + '</td><td>' + attributes.val().PrimaryName + '</td><td>' + attributes.val().SecondaryName + '</td><td><a href="TenantManagement.html?id=' + counter + '"">View</a></td></tr>');
+                }
             });
         });
     });

@@ -223,22 +223,45 @@
 		    		<div class="row">
 			    		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			    			<select id="numbersAdult" class="form-control">
-					            <option value="0"># of Adults</option>
+					            <option value="-1"># of Adults</option>
 					        </select>
 			    		</div>
 			    		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			    			<select id="numbersChildren" class="form-control">
-					            <option value="0"># of Children</option>
+					            <option value="-1"># of Children</option>
 					        </select>
 		    			</div>
 		    		</div>
 		    	</div>
 		    </div>
-	    	<div class="row">
-		    	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
-		    		<button id="btnResign" class="btn btn-success" onclick="Resign()" value="Resign">
+		    <div class="panel panel-default">
+		    	<div class="panel-heading">
+		    		Active
 		    	</div>
-			    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		    	<div class="panel-body">
+		    		<div class="row" id="occupancyHeadings">
+			    		<div class="radio">
+						  	<label>
+						    	<input type="radio" name="optionsRadios" id="isActive" value="1">
+						    		Active
+						  	</label>
+						</div>
+						<div class="radio">
+						  	<label>
+						    	<input type="radio" name="optionsRadios" id="isArchived" value="0">
+						    		Archived
+						  	</label>
+						</div>
+		    		</div>
+		    	</div>
+		    </div>
+	    	<div class="row">
+	    	<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+		    	</div>
+		    	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+	    			<button id="btnResign" class="btn btn-success" onclick="Resign()" value="Resign">
+	    		</div>
+	    		<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 	    			<button id="btnSubmit" class="btn btn-success"/>
 	    		</div>
     		</div>
