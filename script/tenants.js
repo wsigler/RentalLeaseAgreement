@@ -26,6 +26,8 @@ function init(){
         tenantIndex = queryString[value].toString();
         $("#btnSubmit").click(function(){ EditData(); });
         $("#btnSubmit").html('Update');
+        $("#btnResign").css('display', 'inline');
+        $("#btnResign").html('Resign');
         $('#primaryHeaders').css('display', 'inline');
         $('#secondaryHeaders').css('display', 'inline');
         $('#addressHeaders').css('display', 'inline');
@@ -41,6 +43,7 @@ function init(){
     {
         $("#btnSubmit").click(function(){ SaveData(); });
         $("#btnSubmit").html('Save');
+        $("#btnResign").css('display', 'none');
         $('#primaryHeaders').css('display', 'none');
         $('#secondaryHeaders').css('display', 'none');
         $('#addressHeaders').css('display', 'none');
@@ -108,7 +111,7 @@ function init(){
                         $('#depositAmount').val(attributes.val().DepositAmount);
                         $('#petDepositAmount').val(attributes.val().PetDeposit);
 
-                        $('#numbersAdult').val(attributes.val().NumberAdults);
+                        $('#numbersAdult').val(attributes.val().NumbersAdult);
                         $('#numbersChildren').val(attributes.val().NumberChildren);
                         
                     }
@@ -253,4 +256,9 @@ function EditData(){
     });
     alert('Data Updated');
     window.location.href = "index.html";
+}
+
+function Resign()
+{
+    alert('coming soon');
 }
