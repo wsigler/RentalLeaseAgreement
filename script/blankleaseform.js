@@ -36,13 +36,6 @@ function onInit(){
     SetDatePicker("leaseEndDate");
     SetDatePicker("depositDate");
     
-    $('#primaryPhoneNumber').focusout(function(){
-        SetPhoneMask('primaryPhoneNumber');
-    });
-    $('#secondaryPhoneNumber').focusout(function(){
-        SetPhoneMask('secondaryPhoneNumber');
-    });
-    
     SetDropdowns();
 
     $( "#properties" ).change(function() {
@@ -60,32 +53,12 @@ function SetDropdowns(){
           $("#trashPickup").append('<option value=' + index + '>' + value + '</option>');
         });
     }
-
-    $(function(){
-        for(x = 1; x < 6; x++)
-        {
-            $("#numbersAdult").append('<option value=' + x + '>' + x + '</option>');
-            $("#numbersChildren").append('<option value=' + x + '>' + x + '</option>');
-        }
-    });
 }
 
 function SetDatePicker(dateField){
     $(function() {
         $( "#" + dateField ).datepicker();
       });
-}
-
-function SetPhoneMask(phoneField)
-{
-    if($('#' + phoneField).val().length === 10)
-    {
-        $('#' + phoneField).val(function(i, text) {
-            var regex = new RegExp('(\\d{3})(\\d{3})(\\d{4})');
-            var text = text.replace(regex, "($1) $2-$3");
-            return text;
-        });
-    }
 }
 
 function PrepopulatePropertyData(){
@@ -112,56 +85,28 @@ function PrepopulatePropertyData(){
 
 function SaveData(){
     SaveLeaseInfo();
-    SaveTenantInfo();
     alert('Data Saved');
 }
 
 function SaveLeaseInfo(){
     var ref = new Firebase("https://intense-heat-8777.firebaseio.com/LeaseForm/");
-    var usersRef = ref.child("LeaseInfo");
+    var usersRef = ref.child("BlankLease");
     usersRef.set({
         Property : $( "#properties :selected" ).text(),
-        PrimaryTenant : $("#primaryTenant").val(),
-        PrimaryPhoneNumber: $('#primaryPhoneNumber').val(),
-        SecondaryTenant : $("#secondaryTenant").val(),
-        SecondaryPhoneNumber: $('#secondaryPhoneNumber').val(),
-        PrimaryEmail: $("#primaryEmail").val(),
-        SecondaryEmail: $("#secondaryEmail").val(),
+        PrimaryTenant : "_____________________________________________",
+        PrimaryPhoneNumber: "9999999999",
+        SecondaryTenant : "_____________________________________________",
+        SecondaryPhoneNumber: "9999999999",
+        PrimaryEmail: "none",
+        SecondaryEmail: "none",
         RentAmount : $('#rentAmount').val(),
         DepositAmount : $("#depositAmount").val(),
         PetDepositAmount : $("#petDepositAmount").val(),
         LeaseStartDate : $( "#leaseStartDate").val(),
         LeaseEndDate: $( "#leaseEndDate").val(),
         DepositDate : $( "#depositDate").val(),
-        NumbersAdult : $( "#numbersAdult :selected" ).text(), 
-        NumberChildren : $( "#numbersChildren :selected" ).text(),
+        NumbersAdult : "_____________", 
+        NumberChildren : "_____________",
         TrashPickup : $( "#trashPickup :selected" ).text()
     });
 }
-
-function SaveTenantInfo(){
-    var newTenantName = "Tenant" + $("#nextId").val();
-    
-    var newTenant = new Firebase("https://intense-heat-8777.firebaseio.com/Tenants/");
-    var usersRef = newTenant.child(newTenantName);
-    usersRef.set({
-        DepositAmount : $("#depositAmount").val(),
-        DepositDate : $( "#depositDate" ).val(),
-        LeaseEndDate : $( "#leaseEndDate" ).val(),
-        LeaseStartDate: $( "#leaseStartDate" ).val(),
-        NumbersAdult : $( "#numbersAdult :selected" ).text(), 
-        NumberChildren : $( "#numbersChildren :selected" ).text(),
-        PetDeposit : $("#petDepositAmount").val(),
-        PrimaryEmail : $( "#primaryEmail" ).val(),
-        PrimaryName: $("#primaryTenant").val(),
-        PrimaryPhone: $('#primaryPhoneNumber').val(),
-        Property: $('#properties :selected').val(),
-        RentAmount: $('#rentAmount').val(),
-        SecondaryEmail : $("#secondaryEmail").val(),
-        SecondaryName: $("#secondaryTenant").val(),
-        SecondaryPhone: $('#secondaryPhoneNumber').val()
-    });
-    
-}
-
-
