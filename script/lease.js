@@ -49,7 +49,7 @@ function SetTenantInfo(ref){
 		$('#section1Text').html(function() {
 			if(secondaryTenant.val() !== null)
 			{
-	    		return $(this).text().replace('[secondaryTenant]', 'and ' + secondaryTenant.val());
+	    		return $(this).text().replace('[secondaryTenant]', ' and ' + secondaryTenant.val());
 			}
 			else
 			{
@@ -59,7 +59,7 @@ function SetTenantInfo(ref){
 		$('#section1Text').html(function() {
 			if(secondaryTenant.val() !== null)
 			{
-	    		return $(this).text().replace('[secondaryTenant]', 'and ' + secondaryTenant.val());
+	    		return $(this).text().replace('[secondaryTenant]', ' and ' + secondaryTenant.val());
 			}
 			else
 			{

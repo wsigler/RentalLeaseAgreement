@@ -90,6 +90,7 @@ function init(){
                         $('#depositAmount').val(attributes.val().DepositAmount);
                         $('#petDepositAmount').val(attributes.val().PetDepositAmount);
                         $('#trashPickup').val(attributes.val().TrashDay);
+                        $('#estimatedTax').val(attributes.val().EstimatedTax);
                     }
                 }
                 else
@@ -108,6 +109,7 @@ function init(){
                     $('#depositAmount').val('');
                     $('#petDepositAmount').val('');
                     $('#trashPickup').val('-1');
+                    $('#estimatedTax').val('');
                 }
             });
         });
@@ -145,7 +147,8 @@ function SaveData(){
         RentAmount: $('#rentAmount').val(),
         DepositAmount: $('#depositAmount').val(),
         PetDepositAmount: $('#petDepositAmount').val(),
-        TrashDay: $('#trashPickup').val()
+        TrashDay: $('#trashPickup').val(),
+        EstimatedTax: $('#estimatedTax').val()
     });
     
     alert('Data Saved');
@@ -178,7 +181,8 @@ function EditData(){
         RentAmount: $('#rentAmount').val(),
         DepositAmount: $('#depositAmount').val(),
         PetDepositAmount: $('#petDepositAmount').val(),
-        TrashDay: $('#trashPickup').val()
+        TrashDay: $('#trashPickup').val(),
+        EstimatedTax: $('#estimatedTax').val()
     });
     
     

@@ -1,6 +1,9 @@
 /* Default media */
 body {
 }
+.applicationFont{
+	font-size: .7em;
+}
 .container{
 	width: 100%;
 	padding-right: 20%;
@@ -35,6 +38,10 @@ body {
 	margin-left: 5px;
 }
 
+.error{
+	background-color: #a94442 !important;
+	color: #fff !important;
+}
 
 
 
