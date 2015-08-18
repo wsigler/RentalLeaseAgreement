@@ -6,8 +6,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/base.css">
         <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> 
-        <script type="text/javascript" src="script/jquery-2.1.4.js"></script>
-        <script src="script/signature.js"></script>
+        <script src="script/signature/signature.js"></script>
+        <script src="script/jquery-2.1.4.js"></script>   
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top noPrint">
@@ -106,7 +106,8 @@
                     </div>
                     <script>signatureCapture("tenant1");</script>
                 </p>
-                
+                <button id="clear1" onclick="signatureClear('tenant1');" class="btn btn-success">Clear</button>
+                <div class="clear" style="margin-bottom: 10px;"></div>
                 <p id="printSecondaryTenant">
                     Tenant Print: [secondaryTenant]
                 </p>
@@ -117,6 +118,8 @@
                     </div>
                     <script>signatureCapture("tenant2");</script>
                 </p>  
+                <button id="clear2" onclick="signatureClear('tenant2');" class="btn btn-success">Clear</button>
+                <div class="clear"></div>
             </div>
         </div>
         <script src="script/firebase.js"></script>
