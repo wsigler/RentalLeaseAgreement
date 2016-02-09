@@ -1,6 +1,9 @@
 /* Default media */
 body {
 }
+h5{
+	font-weight: bold;
+}
 .applicationFont{
 	font-size: .7em;
 }
@@ -22,6 +25,10 @@ body {
 	clear: both;
 }
 
+.right{
+	text-align: right;
+}
+
 /*============== Signature ================= */
 .signature{
 	margin: 0; 
@@ -41,6 +48,14 @@ body {
 .error{
 	background-color: #a94442 !important;
 	color: #fff !important;
+}
+
+.doubleSpace{
+	margin-bottom: 40px;
+}
+
+.topMargin{
+	margin-top: 40px;
 }
 
 

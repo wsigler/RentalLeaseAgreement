@@ -8,7 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery-ui/jquery-ui.css" rel="stylesheet">
     <title>Sigler Properties</title>
 
     <!-- Bootstrap core CSS -->
@@ -56,8 +57,8 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Dashboard <span class="sr-only">(current)</span></a></li>
-            <li><a href="FormsList.html">Forms & Notices</a></li>
+            <li><a href="index.html">Dashboard</a></li>
+            <li class="active"><a href="#">Forms & Notices <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
@@ -75,7 +76,7 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Forms and Notices</h1>
 
           <!--<div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -99,57 +100,43 @@
               <span class="text-muted">Something else</span>
             </div>
           </div>-->
-
-          <h2 class="sub-header">Property Listing</h2>
-          <div class="table-responsive">
-            <table  id="propertyList" class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Property Id</th>
-                  <th>Address</th>
-                  <th>City</th>
-                  <th>State</th>
-                  <th>Zip</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-		    </div>
-        <h2 class="sub-header">Active Tenants</h2>
-        <div class="table-responsive">
-        	<table id="tenantList" class="table table-striped">
-	        	<thead>
-	        		<tr>
-	        			<th>Tenant Id</th>
-	        			<th>Property Id</th>
-	        			<th>Primary</th>
-	        			<th>Secondary</th>
-	        			<th></th>
-	        		</tr>
-	        	</thead>
-	        	<tbody>
-	        	</tbody>
-        	</table>
-        </div>
-        <h2 class="sub-header">Archived Tenants</h2>
-        <div class="table-responsive">
-          <table id="archivedTenantList" class="table table-striped">
-            <thead>
-              <tr>
-                <th>Tenant Id</th>
-                <th>Property Id</th>
-                <th>Primary</th>
-                <th>Secondary</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
+			<div class="container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="panel panel-default">
+		          	<div class="panel-heading">
+		    			Eviction Notice
+		    		</div>
+		          	<div class="panel-body">
+		          		<div class="row" id="evictionHeaders">
+		          		</div>
+		          		<div class="row">
+			    			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+			    				<select id="properties" class="form-control">
+									<option value="-1">Select Property</option>	
+								</select>
+			    			</div>
+			    			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				    			<input id="evictionDate" type="text" class="form-control"  placeholder="Eviction Date"/>
+				    		</div>
+				    		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					    		<form class="form-inline">
+								  <div class="form-group">
+								    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+								    <div class="input-group">
+								      <div class="input-group-addon">$</div>
+								      <input type="text" class="form-control" id="rentAmount" placeholder="Rent">
+								      <div class="input-group-addon">.00</div>
+								    </div>
+								  </div>
+								</form>
+				    		</div>
+				    		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				    			<button id="evictionPrint" onclick="PrintEviction();" class="btn btn-success">Print</button>
+							</div>
+		    			</div>
+		          	</div>
+	          	</div>
+          	</div>
+      	</div>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -158,6 +145,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="script/bootstrap/bootstrap.min.js"></script>
     <script src="script/firebase.js"></script>
-    <script src="script/index.js"></script>
+    <script src="script/formsNotices.js"></script>
+    <script src="script/jquery-ui.js"></script>
   </body>
 </html>
